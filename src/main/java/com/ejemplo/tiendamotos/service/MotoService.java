@@ -35,5 +35,10 @@ public class MotoService {
     public Moto guardar(Moto moto) {
 
         return motoRepository.save(moto);
+    }
+
+    public void eliminar(Long id)
+    {
+        motoRepository.deleteById(id);
     }   
 }
