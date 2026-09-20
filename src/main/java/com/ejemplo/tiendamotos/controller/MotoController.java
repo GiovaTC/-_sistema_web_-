@@ -70,4 +70,31 @@ public class MotoController {
 
         return "editar-moto";
     }
+
+    @GetMapping("/detalle/{id}")
+    public String detalleMoto(
+            @PathVariable Long id,
+            Model model)
+    {
+        Moto moto = motoService
+                .buscarPorId(id)
+                .orElseThrow(
+                        () -> new IllegalArgumentException(
+                                "Moto no encontrada: " + id
+                        )
+                );
+
+        model.addAttribute("moto", moto);
+
+        return "detalle-moto";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminarMoto(
+            @PathVariable Long id)
+    {
+        motoService.eliminar(id);
+
+        return "redirect:/motos";
+    }   
 }
