@@ -25,5 +25,15 @@ public class MotoService {
     {
 
         return motoRepository.findById(id);
+    }
+
+    public List<Moto> buscarPorMarca(String marca)
+    {
+        return motoRepository.findByMarcaContainingIgnoreCase(marca);
+    }
+
+    public Moto guardar(Moto moto) {
+
+        return motoRepository.save(moto);
     }   
 }
