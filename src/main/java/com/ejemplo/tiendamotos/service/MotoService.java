@@ -40,5 +40,5 @@ public class MotoService {
     public void eliminar(Long id)
     {
         motoRepository.deleteById(id);
-    }   
+    }
 }
