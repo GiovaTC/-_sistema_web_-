@@ -99,5 +99,5 @@ public class Moto {
 
     public void setPrecio(BigDecimal precio) {
         this.precio = precio;
-    }   
+    }
 }
