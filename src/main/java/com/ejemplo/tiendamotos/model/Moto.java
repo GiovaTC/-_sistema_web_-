@@ -29,13 +29,7 @@ public class Moto {
     @Column(precision = 15, scale = 2)
     private BigDecimal precio;
 
-    public Moto(
-            String marca,
-            String modelo,
-            Integer anio,
-            Integer cilindraje,
-            String color,
-            BigDecimal precio) {
+    public Moto() {
 
         this.marca = marca;
         this.modelo = modelo;

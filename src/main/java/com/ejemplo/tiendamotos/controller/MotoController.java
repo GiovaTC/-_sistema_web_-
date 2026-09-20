@@ -36,5 +36,38 @@ public class MotoController {
         model.addAttribute("marcaBusqueda", marca);
 
         return "motos";
-    }   
+    }
+
+    @GetMapping("/nuevo")
+    public String mostrarFormularioCrear(Model model) {
+
+        model.addAttribute("moto", new Moto());
+
+        return "crear-moto";
+    }
+
+    @PostMapping("/guardar")
+    public String guardarMoto(@ModelAttribute Moto moto) {
+
+        motoService.guardar(moto);
+
+        return "redirect:/motos";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String mostrarFormularioEditar(
+            @PathVariable Long id,
+            Model model)
+    {
+        Moto moto = motoService
+                .buscarPorId(id)
+                .orElseThrow(
+                        () -> new IllegalArgumentException(
+                                "Moto no encontrada: " + id
+                        )
+                );
+        model.addAttribute("moto", moto);
+
+        return "editar-moto";
+    }
 }
