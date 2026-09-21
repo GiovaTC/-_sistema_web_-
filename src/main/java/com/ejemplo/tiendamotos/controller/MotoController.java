@@ -96,5 +96,5 @@ public class MotoController {
         motoService.eliminar(id);
 
         return "redirect:/motos";
-    }   
+    }
 }
